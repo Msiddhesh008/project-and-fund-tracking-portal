@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build && cp dist/index.html dist/404.html",
+    "deploy": "npm run build && gh-pages -d dist",
     "lint": "oxlint",
     "preview": "vite preview"
   },
@@ -25,6 +26,7 @@
     "@types/react-dom": "^19.2.7",
     "@types/uuid": "^10.0.0",
     "@vitejs/plugin-react": "^6.1.1",
+    "gh-pages": "^6.3.0",
     "oxlint": "^1.81.0",
     "typescript": "~6.0.2",
     "vite": "^8.3.0"
