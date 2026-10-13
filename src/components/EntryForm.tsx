@@ -351,12 +351,12 @@ export function EntryForm({
         </div>
       </div>
 
-      <div className="form-actions">
-        <button type="submit" className="btn btn-primary" disabled={saving}>
-          {saving ? 'Saving…' : submitLabel}
-        </button>
+      <div className="form-actions form-actions-sticky">
         <button type="button" className="btn btn-secondary" onClick={onCancel} disabled={saving}>
           Cancel
+        </button>
+        <button type="submit" className="btn btn-primary" disabled={saving}>
+          {saving ? 'Saving…' : submitLabel}
         </button>
       </div>
     </form>

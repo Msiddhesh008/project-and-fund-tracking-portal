@@ -89,41 +89,58 @@ export function EntriesTable({ entries, selected, onToggle, onToggleAll, onDelet
           const pct = percentFunded(e.expectedFunding, e.projectBudget);
           return (
             <article key={e.id} className="entry-card">
-              <div style={{ display: 'flex', justifyContent: 'space-between', gap: '0.5rem' }}>
-                <label style={{ display: 'flex', gap: '0.5rem', alignItems: 'flex-start' }}>
+              <div className="entry-card-top">
+                <label className="entry-card-select">
                   <input
                     type="checkbox"
                     checked={selected.has(e.id)}
                     onChange={() => onToggle(e.id)}
                   />
-                  <h3>{e.projectName || 'Untitled project'}</h3>
+                  <div>
+                    <h3>{e.projectName || 'Untitled project'}</h3>
+                    <p className="entry-card-sub">
+                      {e.quarter} · {e.region} · {e.month}
+                    </p>
+                  </div>
                 </label>
                 <span className={`badge ${pct >= 100 ? '' : 'warn'}`}>{Math.round(pct)}%</span>
               </div>
               <div className="entry-meta">
-                <span>
-                  {e.quarter} · {e.region}
-                </span>
-                <span>{e.month}</span>
-                <span>
-                  {e.cluster || e.district || e.state || '—'}
-                </span>
-                <span>{e.donorName || 'No donor'}</span>
-                <span>Vol: {formatNumber(e.volunteers)}</span>
-                <span>{formatINR(e.projectBudget)}</span>
+                <div>
+                  <span className="meta-label">Location</span>
+                  <span>{e.cluster || e.district || e.state || '—'}</span>
+                </div>
+                <div>
+                  <span className="meta-label">Donor</span>
+                  <span>{e.donorName || 'No donor'}</span>
+                </div>
+                <div>
+                  <span className="meta-label">Volunteers</span>
+                  <span>{formatNumber(e.volunteers)}</span>
+                </div>
+                <div>
+                  <span className="meta-label">Budget</span>
+                  <span>{formatINR(e.projectBudget)}</span>
+                </div>
               </div>
-              <div className="row-actions" style={{ marginTop: '0.75rem' }}>
-                <Link className="btn btn-secondary btn-sm" to={`/entries/${e.id}`}>
+              <div className="entry-card-actions">
+                <Link className="btn btn-secondary btn-block" to={`/entries/${e.id}`}>
                   Edit
                 </Link>
-                <button type="button" className="btn btn-danger btn-sm" onClick={() => onDelete(e.id)}>
+                <button
+                  type="button"
+                  className="btn btn-danger btn-block"
+                  onClick={() => onDelete(e.id)}
+                >
                   Delete
                 </button>
               </div>
             </article>
           );
         })}
-        {!entries.length && <div className="empty-state panel panel-pad">No entries match your filters.</div>}
+        {!entries.length && (
+          <div className="empty-state panel panel-pad">No entries match your filters.</div>
+        )}
       </div>
     </>
   );

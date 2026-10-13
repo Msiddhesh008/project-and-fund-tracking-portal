@@ -53,7 +53,7 @@ export function Dashboard() {
           <h1>FY {settings.fiscalYear} Dashboard</h1>
           <p className="page-subtitle">Project targets · Donor details · Funding allocation</p>
         </div>
-        <Link to="/entries/new" className="btn btn-primary">
+        <Link to="/entries/new" className="btn btn-primary desktop-only">
           Add Project
         </Link>
       </div>

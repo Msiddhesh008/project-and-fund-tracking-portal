@@ -75,22 +75,22 @@ export function EntriesPage() {
             {filtered.length} of {entries.length} rows · grouped by quarter &amp; region
           </p>
         </div>
-        <div className="row-actions">
+        <div className="row-actions page-actions">
           <button
             type="button"
             className="btn btn-secondary"
             onClick={() => downloadExcel(filtered, `tracker-${settings.fiscalYear}.xlsx`)}
           >
-            Export Excel
+            Excel
           </button>
           <button
             type="button"
             className="btn btn-secondary"
             onClick={() => downloadCsv(filtered, `tracker-${settings.fiscalYear}.csv`)}
           >
-            Export CSV
+            CSV
           </button>
-          <Link to="/entries/new" className="btn btn-primary">
+          <Link to="/entries/new" className="btn btn-primary desktop-only">
             Add Project
           </Link>
         </div>
