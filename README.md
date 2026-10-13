@@ -2,11 +2,21 @@
 
 Local-only React + Vite app for FY project targets, donor details, and funding allocation. All data stays in your browser (IndexedDB via Dexie)—no server and no cloud database.
 
+## Live
+
+https://Msiddhesh008.github.io/project-and-fund-tracking-portal/
+
 ## Run
 
 ```bash
 npm install
 npm run dev
+```
+
+## Deploy (GitHub Pages)
+
+```bash
+npm run deploy
 ```
 
 ## Features
